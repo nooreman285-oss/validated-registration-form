@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Code Camp: Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="layout">
+    <aside class="intro">
+      <h1>Campus Code Camp</h1>
+      <p class="lede">A free two-day build weekend for students. Pick a track, bring a laptop, ship something.</p>
+      <dl class="facts">
+        <dt>When</dt><dd>Two Saturdays, 10 am to 4 pm</dd>
+        <dt>Where</dt><dd>IT lab, main campus</dd>
+        <dt>Seats</dt><dd>60, first come first served</dd>
+      </dl>
+    </aside>
+
+    <section class="panel">
+      <h2>Reserve your seat</h2>
+      <form id="regForm" novalidate>
+        <div class="field" data-field="fullName">
+          <label for="fullName">Full name</label>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" />
+          <p class="error" id="fullName-error" role="alert"></p>
+        </div>
+
+        <div class="row">
+          <div class="field" data-field="email">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" />
+            <p class="error" id="email-error" role="alert"></p>
+          </div>
+          <div class="field" data-field="phone">
+            <label for="phone">Mobile number</label>
+            <input id="phone" name="phone" type="tel" placeholder="0300 1234567" autocomplete="tel" />
+            <p class="error" id="phone-error" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field" data-field="dob">
+            <label for="dob">Date of birth</label>
+            <input id="dob" name="dob" type="date" />
+            <p class="error" id="dob-error" role="alert"></p>
+          </div>
+          <div class="field" data-field="track">
+            <label for="track">Track</label>
+            <select id="track" name="track">
+              <option value="">Choose a track</option>
+              <option value="web">Web development</option>
+              <option value="mobile">Mobile apps</option>
+              <option value="data">Data and AI</option>
+              <option value="design">UI design</option>
+            </select>
+            <p class="error" id="track-error" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="field" data-field="motivation">
+          <label for="motivation">Why do you want to join?</label>
+          <textarea id="motivation" name="motivation" rows="4"></textarea>
+          <div class="meta"><p class="error" id="motivation-error" role="alert"></p><span id="count">0 / 300</span></div>
+        </div>
+
+        <div class="field" data-field="photo">
+          <label for="photo">Profile photo</label>
+          <div class="upload">
+            <img id="preview" alt="" hidden />
+            <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" />
+          </div>
+          <p class="hint">JPG, PNG or WebP, up to 2 MB.</p>
+          <p class="error" id="photo-error" role="alert"></p>
+        </div>
+
+        <div class="field check" data-field="terms">
+          <label><input id="terms" name="terms" type="checkbox" /> I agree to follow the code of conduct.</label>
+          <p class="error" id="terms-error" role="alert"></p>
+        </div>
+
+        <button id="submitBtn" type="submit">
+          <span class="spinner" aria-hidden="true"></span>
+          <span class="label">Reserve my seat</span>
+        </button>
+
+        <label class="dev"><input type="checkbox" id="skipClient" /> Demo: skip browser validation (to show the server check)</label>
+      </form>
+    </section>
+  </main>
+
+  <div id="toasts" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
